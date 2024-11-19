@@ -5,3 +5,11 @@ tensorflow
 seaborn
 pillow
 keras
+
+geopandas
+matplotlib
+adjustText
+matplotlib-scalebar
+fiona
+pyproj
+shapely
