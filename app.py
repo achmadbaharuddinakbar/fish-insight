@@ -126,7 +126,7 @@ def klasifikasi_1():
         st.warning("⏳ Memproses gambar...")
         processed_image = preprocess_image(image)
 
-        prediction = model.predict(processed_image)
+        prediction = model1.predict(processed_image)
         class_index = np.argmax(prediction)
         labels = [
             "Label 1 (Amphiprion clarkii)",
@@ -156,7 +156,7 @@ def klasifikasi_2():
         st.warning("⏳ Memproses gambar...")
         processed_image = preprocess_image(image)
 
-        prediction = model.predict(processed_image)
+        prediction = model2.predict(processed_image)
         class_index = np.argmax(prediction)
         labels = [
             "Label 1 (Chromis Chrysura)",
@@ -179,7 +179,8 @@ def preprocess_image(image, target_size=(224, 224)):
     return image
 
 # Load the model
-model = tf.keras.models.load_model('model.h5')  # Ganti dengan path model Anda
+model1 = tf.keras.models.load_model('akbar.h5')  # Ganti dengan path model Anda
+model2 = tf.keras.models.load_model('dana.h5')  # Ganti dengan path model Anda
 
 # Main Streamlit app
 def main():
