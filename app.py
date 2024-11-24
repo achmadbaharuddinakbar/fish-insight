@@ -157,7 +157,7 @@ def klasifikasi_2():
 # Sidebar
 with st.sidebar:
     st.title("Navigasi")
-    menu = st.radio("Pilih Fitur:", ["Clustering", "Klasifikasi 1", "Klasifikasi 2"])
+    menu = st.radio("Pilih Fitur:", ["Clustering dan Prediksi", "Klasifikasi 1", "Klasifikasi 2"])
 
 # Menjalankan fitur berdasarkan pilihan pengguna
 if menu == "Clustering":
