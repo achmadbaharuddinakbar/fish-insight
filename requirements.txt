@@ -13,3 +13,4 @@ matplotlib-scalebar
 fiona
 pyproj
 shapely
+folium
