@@ -160,7 +160,7 @@ with st.sidebar:
     menu = st.radio("Pilih Fitur:", ["Clustering dan Prediksi", "Klasifikasi 1", "Klasifikasi 2"])
 
 # Menjalankan fitur berdasarkan pilihan pengguna
-if menu == "Clustering":
+if menu == "Clustering dan Prediksi":
     clustering()
 elif menu == "Klasifikasi 1":
     klasifikasi_1()
