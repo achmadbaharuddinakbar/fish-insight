@@ -90,7 +90,6 @@ def clustering():
     }
     df = pd.DataFrame(data)
     st.table(df)
-    st.subheader("Hasil Analisis Prediksi Konsumsi Ikan")
     st.write("""
     Berdasarkan hasil prediksi konsumsi ikan untuk 5 tahun ke depan di beberapa negara, terlihat adanya tren yang bervariasi.
     - **Brunei**: Penurunan ringan.
