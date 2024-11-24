@@ -50,7 +50,7 @@ def create_interactive_map(world, clustered_df):
             f"Growth Rate: {f'{row['growth_rate']:.2f}%' if not pd.isna(row['growth_rate']) else 'N/A'}<br>"
         )
         folium.GeoJson(
-            data=row['geometry']._geo_interface_,
+            data=row['geometry'].__geo_interface__,
             style_function=lambda feature, color=color: {
                 "fillColor": color if color != "none" else "white",
                 "color": "black",
@@ -85,12 +85,12 @@ def preprocess_image(image, target_size=(224, 224)):
 
 # Fungsi Klasifikasi 1
 def klasifikasi_1():
-    st.title("🖼 Klasifikasi 1: Spesies Ikan")
+    st.title("🖼️ Klasifikasi 1: Spesies Ikan")
     st.markdown("""
-    *Klasifikasi Gambar Spesies Ikan*
-    - *Label 1:* Amphiprion clarkii
-    - *Label 2:* Chaetodon lunulatus
-    - *Label 3:* Chaetodon trifascialis
+    **Klasifikasi Gambar Spesies Ikan**
+    - **Label 1:** Amphiprion clarkii
+    - **Label 2:** Chaetodon lunulatus
+    - **Label 3:** Chaetodon trifascialis
     """)
     uploaded_file = st.file_uploader("Upload gambar ikan (jpg, jpeg, png):", type=["jpg", "jpeg", "png"])
     if uploaded_file is not None:
@@ -103,17 +103,17 @@ def klasifikasi_1():
         labels = ["Label 1 (Amphiprion clarkii)", "Label 2 (Chaetodon lunulatus)", "Label 3 (Chaetodon trifascialis)"]
         predicted_label = labels[class_index]
         probability = prediction[0][class_index] * 100
-        st.success(f"🎉 *Prediksi:* {predicted_label}")
-        st.info(f"*Probabilitas:* {probability:.2f}%")
+        st.success(f"🎉 **Prediksi:** {predicted_label}")
+        st.info(f"**Probabilitas:** {probability:.2f}%")
 
 # Fungsi Klasifikasi 2
 def klasifikasi_2():
-    st.title("🖼 Klasifikasi 2: Spesies Ikan")
+    st.title("🖼️ Klasifikasi 2: Spesies Ikan")
     st.markdown("""
-    *Klasifikasi Gambar Spesies Ikan*
-    - *Label 1:* Chromis Chrysura
-    - *Label 2:* Dascyllus Reticulatus
-    - *Label 3:* Plectroglyphidodon Dickii
+    **Klasifikasi Gambar Spesies Ikan**
+    - **Label 1:** Chromis Chrysura
+    - **Label 2:** Dascyllus Reticulatus
+    - **Label 3:** Plectroglyphidodon Dickii
     """)
     uploaded_file = st.file_uploader("Upload gambar ikan (jpg, jpeg, png):", type=["jpg", "jpeg", "png"])
     if uploaded_file is not None:
@@ -126,8 +126,8 @@ def klasifikasi_2():
         labels = ["Label 1 (Chromis Chrysura)", "Label 2 (Dascyllus Reticulatus)", "Label 3 (Plectroglyphidodon Dickii)"]
         predicted_label = labels[class_index]
         probability = prediction[0][class_index] * 100
-        st.success(f"🎉 *Prediksi:* {predicted_label}")
-        st.info(f"*Probabilitas:* {probability:.2f}%")
+        st.success(f"🎉 **Prediksi:** {predicted_label}")
+        st.info(f"**Probabilitas:** {probability:.2f}%")
 
 # Model untuk klasifikasi
 model1 = tf.keras.models.load_model('akbar.h5')
@@ -144,5 +144,5 @@ def main():
     elif option == "Klasifikasi 2":
         klasifikasi_2()
 
-if _name_ == '_main_':
+if __name__ == '__main__':
     main()
