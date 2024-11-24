@@ -74,6 +74,31 @@ def clustering():
         st.error(f"Error loading data: {e}")
         st.info("Please check the GitHub URLs and ensure files are accessible")
 
+    
+    st.title("Prediksi Konsumsi Ikan Tahunan untuk 5 Tahun ke Depan")
+    data = {
+        'Tahun': ['Tahun 1', 'Tahun 2', 'Tahun 3', 'Tahun 4', 'Tahun 5'],
+        'Brunei': [0.499228, 0.491545, 0.452463, 0.354421, 0.165281],
+        'Cambodia': [-2.810841, -5.846806, -9.410816, -11.892458, -16.040953],
+        'Indonesia': [0.205084, -0.909621, -3.320006, -6.251882, -8.100619],
+        'Laos': [-1.045137, -3.350134, -7.017705, -9.632481, -11.920973],
+        'Malaysia': [-1.940506, -3.894156, -5.888247, -7.145387, -9.121558],
+        'Myanmar': [-2.834271, -5.531009, -8.201625, -10.300562, -13.821525],
+        'Philippines': [-0.088790, -0.277209, -0.548433, -0.874676, -1.047260],
+        'Thailand': [0.028403, -0.498116, -1.572209, -2.788179, -3.786477],
+        'Vietnam': [-0.694727, -2.266113, -4.983405, -7.333661, -9.227884],
+    }
+    df = pd.DataFrame(data)
+    st.table(df)
+    st.subheader("Hasil Analisis Prediksi Konsumsi Ikan")
+    st.write("""
+    Berdasarkan hasil prediksi konsumsi ikan untuk 5 tahun ke depan di beberapa negara, terlihat adanya tren yang bervariasi.
+    - **Brunei**: Penurunan ringan.
+    - **Cambodia**: Penurunan tajam.
+    - **Indonesia**: Tren menurun stabil.
+    - **Myanmar, Laos, Malaysia**: Penurunan terlihat cukup signifikan.
+    """)
+
 # Fungsi preprocessing gambar
 def preprocess_image(image, target_size=(224, 224)):
     image = image.convert("RGB")
@@ -129,36 +154,10 @@ def klasifikasi_2():
         st.success(f"🎉 **Prediksi:** {predicted_label}")
         st.info(f"**Probabilitas:** {probability:.2f}%")
 
-# Fungsi Prediksi Konsumsi
-def prediksi_konsumsi():
-    st.title("Prediksi Konsumsi Ikan Tahunan untuk 5 Tahun ke Depan")
-    data = {
-        'Tahun': ['Tahun 1', 'Tahun 2', 'Tahun 3', 'Tahun 4', 'Tahun 5'],
-        'Brunei': [0.499228, 0.491545, 0.452463, 0.354421, 0.165281],
-        'Cambodia': [-2.810841, -5.846806, -9.410816, -11.892458, -16.040953],
-        'Indonesia': [0.205084, -0.909621, -3.320006, -6.251882, -8.100619],
-        'Laos': [-1.045137, -3.350134, -7.017705, -9.632481, -11.920973],
-        'Malaysia': [-1.940506, -3.894156, -5.888247, -7.145387, -9.121558],
-        'Myanmar': [-2.834271, -5.531009, -8.201625, -10.300562, -13.821525],
-        'Philippines': [-0.088790, -0.277209, -0.548433, -0.874676, -1.047260],
-        'Thailand': [0.028403, -0.498116, -1.572209, -2.788179, -3.786477],
-        'Vietnam': [-0.694727, -2.266113, -4.983405, -7.333661, -9.227884],
-    }
-    df = pd.DataFrame(data)
-    st.table(df)
-    st.subheader("Hasil Analisis Prediksi Konsumsi Ikan")
-    st.write("""
-    Berdasarkan hasil prediksi konsumsi ikan untuk 5 tahun ke depan di beberapa negara, terlihat adanya tren yang bervariasi.
-    - **Brunei**: Penurunan ringan.
-    - **Cambodia**: Penurunan tajam.
-    - **Indonesia**: Tren menurun stabil.
-    - **Myanmar, Laos, Malaysia**: Penurunan terlihat cukup signifikan.
-    """)
-
 # Sidebar
 with st.sidebar:
     st.title("Navigasi")
-    menu = st.radio("Pilih Fitur:", ["Clustering", "Klasifikasi 1", "Klasifikasi 2", "Prediksi Konsumsi Ikan 5 Tahun"])
+    menu = st.radio("Pilih Fitur:", ["Clustering", "Klasifikasi 1", "Klasifikasi 2"])
 
 # Menjalankan fitur berdasarkan pilihan pengguna
 if menu == "Clustering":
@@ -167,5 +166,3 @@ elif menu == "Klasifikasi 1":
     klasifikasi_1()
 elif menu == "Klasifikasi 2":
     klasifikasi_2()
-elif menu == "Prediksi Konsumsi Ikan 5 Tahun":
-    prediksi_konsumsi()
