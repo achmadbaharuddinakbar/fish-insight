@@ -74,8 +74,6 @@ def clustering():
         st.error(f"Error loading data: {e}")
         st.info("Please check the GitHub URLs and ensure files are accessible")
 
-    
-    st.title("Prediksi Konsumsi Ikan Tahunan untuk 5 Tahun ke Depan")
     data = {
         'Tahun': ['Tahun 1', 'Tahun 2', 'Tahun 3', 'Tahun 4', 'Tahun 5'],
         'Brunei': [0.499228, 0.491545, 0.452463, 0.354421, 0.165281],
@@ -90,13 +88,6 @@ def clustering():
     }
     df = pd.DataFrame(data)
     st.table(df)
-    st.write("""
-    Berdasarkan hasil prediksi konsumsi ikan untuk 5 tahun ke depan di beberapa negara, terlihat adanya tren yang bervariasi.
-    - **Brunei**: Penurunan ringan.
-    - **Cambodia**: Penurunan tajam.
-    - **Indonesia**: Tren menurun stabil.
-    - **Myanmar, Laos, Malaysia**: Penurunan terlihat cukup signifikan.
-    """)
 
 # Fungsi preprocessing gambar
 def preprocess_image(image, target_size=(224, 224)):
