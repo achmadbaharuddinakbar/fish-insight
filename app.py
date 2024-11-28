@@ -130,8 +130,8 @@ def klasifikasi_2():
     st.markdown("""
     **Klasifikasi Gambar Spesies Ikan**
     - **Label 1:** Chromis Chrysura
-    - **Label 2:** Plectroglyphidodon Dickii
-    - **Label 3:** Dascyllus Reticulatus
+    - **Label 2:** Dascyllus Reticulatus
+    - **Label 3:** Plectroglyphidodon Dickii
     """)
     uploaded_file = st.file_uploader("Upload gambar ikan (jpg, jpeg, png):", type=["jpg", "jpeg", "png"])
     if uploaded_file is not None:
