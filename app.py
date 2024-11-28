@@ -89,6 +89,9 @@ def clustering():
     df = pd.DataFrame(data)
     st.table(df)
 
+model1 = tf.keras.models.load_model('akbar.h5')
+model2 = tf.keras.models.load_model('dana.h5')
+
 # Fungsi preprocessing gambar
 def preprocess_image(image, target_size=(224, 224)):
     image = image.convert("RGB")
